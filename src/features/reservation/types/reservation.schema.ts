@@ -33,4 +33,8 @@ export const queryFormSchema = z.object({
     .regex(/^[0-9]{4}$/u, '비밀번호는 숫자 4자리여야 합니다'),
 });
 
+// 폼 값 타입 내보내기 (useForm 제네릭에서 사용)
+export type ReservationFormValues = z.infer<typeof reservationFormSchema>;
+export type QueryFormValues = z.infer<typeof queryFormSchema>;
+
 

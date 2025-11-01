@@ -12,11 +12,10 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { QueryFormInput } from '../types/reservation.types';
-import { queryFormSchema } from '../types/reservation.schema';
+import { queryFormSchema, type QueryFormValues } from '../types/reservation.schema';
 
 interface QueryFormProps {
-  onSubmit: (data: QueryFormInput) => void;
+  onSubmit: (data: QueryFormValues) => void;
   isLoading: boolean;
 }
 
@@ -24,8 +23,8 @@ interface QueryFormProps {
  * 예약 조회 폼
  */
 export const QueryForm = ({ onSubmit, isLoading }: QueryFormProps) => {
-  const form = useForm<QueryFormInput>({
-    resolver: zodResolver<QueryFormInput>(queryFormSchema),
+  const form = useForm<QueryFormValues>({
+    resolver: zodResolver(queryFormSchema),
     defaultValues: { phone_number: '', password: '' },
   });
 

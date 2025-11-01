@@ -7,7 +7,7 @@ import { ReservationForm } from '@/features/reservation/components/ReservationFo
 import { ReservationNotice } from '@/features/reservation/components/ReservationNotice';
 import { ReservationDialog } from '@/features/reservation/components/ReservationDialog';
 import { useCreateReservation, useRooms } from '@/features/reservation/hooks/useReservationQuery';
-import { ReservationFormInput } from '@/features/reservation/types/reservation.types';
+import { type ReservationFormValues } from '@/features/reservation/types/reservation.schema';
 
 /**
  * 예약 페이지 (/form)
@@ -32,7 +32,7 @@ export default function FormPage() {
   const room = rooms.find((r) => r.room_id === Number(roomId));
   if (!room || !date || !time) return null;
 
-  const handleSubmit = async (data: ReservationFormInput) => {
+  const handleSubmit = async (data: ReservationFormValues) => {
     const result = await createMutation.mutateAsync({
       room_id: Number(roomId),
       reservation_date: date,

@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { QueryForm } from '@/features/reservation/components/QueryForm';
 import { ReservationResultList } from '@/features/reservation/components/ReservationResultList';
 import { useQueryReservations } from '@/features/reservation/hooks/useReservationQuery';
-import { QueryFormInput, ReservationWithRoom } from '@/features/reservation/types/reservation.types';
+import { ReservationWithRoom } from '@/features/reservation/types/reservation.types';
+import { type QueryFormValues } from '@/features/reservation/types/reservation.schema';
 
 /**
  * 예약 조회 페이지 (/view)
@@ -14,7 +15,7 @@ export default function ViewPage() {
   const [results, setResults] = useState<ReservationWithRoom[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
 
-  const handleSubmit = async (data: QueryFormInput) => {
+  const handleSubmit = async (data: QueryFormValues) => {
     const reservations = await queryMutation.mutateAsync(data);
     setResults(reservations);
     setHasSearched(true);

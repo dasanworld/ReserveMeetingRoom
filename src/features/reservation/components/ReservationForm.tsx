@@ -12,11 +12,10 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { ReservationFormInput } from '../types/reservation.types';
-import { reservationFormSchema } from '../types/reservation.schema';
+import { reservationFormSchema, type ReservationFormValues } from '../types/reservation.schema';
 
 interface ReservationFormProps {
-  onSubmit: (data: ReservationFormInput) => void;
+  onSubmit: (data: ReservationFormValues) => void;
   isLoading: boolean;
 }
 
@@ -24,8 +23,8 @@ interface ReservationFormProps {
  * 예약 입력 폼 (유효성 검증 포함)
  */
 export const ReservationForm = ({ onSubmit, isLoading }: ReservationFormProps) => {
-  const form = useForm<ReservationFormInput>({
-    resolver: zodResolver<ReservationFormInput>(reservationFormSchema),
+  const form = useForm<ReservationFormValues>({
+    resolver: zodResolver(reservationFormSchema),
     defaultValues: {
       user_name: '',
       phone_number: '',

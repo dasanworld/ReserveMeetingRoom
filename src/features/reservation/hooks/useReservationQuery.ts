@@ -7,7 +7,7 @@ import {
   fetchRooms,
   queryReservations,
 } from '../api/reservationApi';
-import { QueryFormInput } from '../types/reservation.types';
+import { type QueryFormValues } from '../types/reservation.schema';
 
 const QUERY_KEYS = {
   rooms: ['rooms'] as const,
@@ -53,7 +53,7 @@ export const useCreateReservation = () => {
  */
 export const useQueryReservations = () => {
   return useMutation({
-    mutationFn: ({ phone_number, password }: QueryFormInput) =>
+    mutationFn: ({ phone_number, password }: QueryFormValues) =>
       queryReservations(phone_number, password),
   });
 };

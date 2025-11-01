@@ -1,3 +1,54 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+.next/cache/
+out/
+
+# Build artifacts
+dist/
+coverage/
+*.tsbuildinfo
+.eslintcache
+
+# Env files (keep examples)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor/OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Vercel / Turbo
+.vercel/
+.turbo/
+
+# Supabase local artifacts (migrations are tracked)
+supabase/.branches
+supabase/.temp
+supabase/.netrc
+supabase/.cache
+
+# Project docs (ignore local docs)
+docs/
+
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies

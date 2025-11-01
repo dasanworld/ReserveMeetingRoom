@@ -25,7 +25,7 @@ interface QueryFormProps {
  */
 export const QueryForm = ({ onSubmit, isLoading }: QueryFormProps) => {
   const form = useForm<QueryFormInput>({
-    resolver: zodResolver(queryFormSchema),
+    resolver: zodResolver<QueryFormInput>(queryFormSchema),
     defaultValues: { phone_number: '', password: '' },
   });
 

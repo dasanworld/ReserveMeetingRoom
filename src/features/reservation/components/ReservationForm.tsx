@@ -25,7 +25,7 @@ interface ReservationFormProps {
  */
 export const ReservationForm = ({ onSubmit, isLoading }: ReservationFormProps) => {
   const form = useForm<ReservationFormInput>({
-    resolver: zodResolver(reservationFormSchema),
+    resolver: zodResolver<ReservationFormInput>(reservationFormSchema),
     defaultValues: {
       user_name: '',
       phone_number: '',

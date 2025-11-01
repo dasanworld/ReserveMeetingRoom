@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { RoomInfoDisplay } from '@/features/reservation/components/RoomInfoDisplay';
 import { ReservationForm } from '@/features/reservation/components/ReservationForm';
@@ -14,6 +14,14 @@ import { type ReservationFormValues } from '@/features/reservation/types/reserva
  * - 쿼리 파라미터(roomId, date, time) 기반으로 예약 폼을 표시
  */
 export default function FormPage() {
+  return (
+    <Suspense fallback={<div className="container mx-auto p-8">로딩 중...</div>}>
+      <FormPageContent />
+    </Suspense>
+  );
+}
+
+function FormPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const roomId = searchParams.get('roomId');
